@@ -9,6 +9,7 @@ services:
 
   api:
     build: .
+    image: rockz5555/api
     env_file:
       - ./.env
     depends_on:
