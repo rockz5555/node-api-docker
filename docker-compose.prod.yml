@@ -5,6 +5,15 @@ services:
       - "80:80"
 
   api:
+    deploy:
+      replicas: 6
+      restart_policy:
+        condition: any
+        max_attempts: 5
+      update_config:
+        parallelism: 2
+        failure_action: rollback
+        delay: 15s
     build:
       context: .
       args:
